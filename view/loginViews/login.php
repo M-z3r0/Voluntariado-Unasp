@@ -28,10 +28,10 @@
             </form>
         </div>
         <div class="form-container sign-in">
-            <form action="">
+            <form action="../../Controller/loginController.php" method="POST">
                 <h1>Entrar na sua conta</h1>
-                <input type="email" name="user_reg_email" id="user_email" placeholder="Email...">
-                <input type="password" name="user_reg_password" id="user_password" placeholder="Senha...">
+                <input type="email" name="user_email" id="user_email" placeholder="Email...">
+                <input type="password" name="user_password" id="user_password" placeholder="Senha...">
                 <a href="#">Esqueci minha senha</a>
                 <button type="submit">Entrar</button>
             </form>
