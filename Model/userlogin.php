@@ -1,6 +1,11 @@
 <?php 
     function validateLogin($pdo, $email, $password) {
-        $stmt = $pdo->prepare("SELECT * FROM user WHERE user_email = ? AND user_password = ?");
-        $stmt->execute([$email, $password]);
-        return $stmt->fetch(PDO::FETCH_ASSOC); // Retorna os dados do usuário ou false
+        $stmt = $pdo->prepare("SELECT * FROM usuario WHERE user_email = ?");
+        $stmt->execute([$email]);
+        $user = $stmt->fetch(PDO::FETCH_ASSOC);
+    
+        if ($user && password_verify($password, $user['user_password'])) {
+            return $user;
+        }
+        return false;
     }

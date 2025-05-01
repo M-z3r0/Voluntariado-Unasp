@@ -18,11 +18,11 @@
     <section class="container" id="container">
         <div class="form-container sign-up">
          
-            <form action="loginController.php">
+            <form action="../../Controller/singupController.php" method="POST">
                 <h1>Criação de conta</h1>
-                <input type="text" name="user_reg_name" id="user_reg_name" placeholder="Nome...">
-                <input type="text" name="user_reg_nickname" id="user_reg_nickname" placeholder="Nome de usuário...">
-                <input type="email" name="user_reg_email" id="user_reg_email" placeholder="Email...">
+                <input type="text" name="user_name" id="user_reg_name" placeholder="Nome...">
+                <input type="text" name="user_nickname" id="user_reg_nickname" placeholder="Nome de usuário...">
+                <input type="email" name="user_email" id="user_reg_email" placeholder="Email...">
                 <h4 class="emailFeedBack"></h4>
                 <input type="password" name="user_reg_password" id="user_reg_password" placeholder="Senha...">
                 <ul>
