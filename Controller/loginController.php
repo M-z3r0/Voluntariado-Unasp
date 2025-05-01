@@ -1,7 +1,7 @@
 <?php
 session_start();
 require_once '../config/connection.php';
-require_once '../Model/userlogin.php';
+require_once '../model/userlogin.php';
 
 $error = ''; // Inicializa a variável de erro
 
@@ -18,10 +18,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $user = validateLogin($pdo, $email, $password);
 
         // Verifica se as credenciais são válidas
-        if (empty($email) || empty($password)) {
-            $_SESSION['error'] = 'Preencha todos os campos';
-            header('Location: ../view/loginViews/login.php');
-            exit;
+        if (!$user) {
+                $_SESSION['error'] = 'Email ou senha incorretos. Por favor, tente novamente.';
+                header('Location: ../view/loginViews/login.php');
+                exit;
         } else {
             $user = validateLogin($pdo, $email, $password);
             if ($user) {

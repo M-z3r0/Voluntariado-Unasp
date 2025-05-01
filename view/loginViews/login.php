@@ -1,3 +1,8 @@
+<?php
+    session_start();
+    $error = $_SESSION['error'] ?? '';
+    unset($_SESSION['error']); // Limpa a mensagem após exibir
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,9 +12,13 @@
     <title>Página de Login</title>
 </head>
 <body>
+    <?php if ($error): ?>
+        <div class="error-message"><?= htmlspecialchars($error) ?></div>
+    <?php endif; ?>
     <section class="container" id="container">
         <div class="form-container sign-up">
-            <form action="">
+         
+            <form action="loginController.php">
                 <h1>Criação de conta</h1>
                 <input type="text" name="user_reg_name" id="user_reg_name" placeholder="Nome...">
                 <input type="text" name="user_reg_nickname" id="user_reg_nickname" placeholder="Nome de usuário...">

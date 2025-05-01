@@ -181,3 +181,18 @@ div.toggle div.toggle-right {
 section.container.active div.toggle-right {
     transform: translateX(200%);
 }
+
+
+/*
+    erro nas credenciais
+*/
+
+div.error-message {
+    background-color: #ffe0e0;
+    color: #d8000c;
+    padding: 10px 15px;
+    margin-bottom: 20px;
+    border: 1px solid #d8000c;
+    border-radius: 5px;
+    font-family: Arial, sans-serif;
+}
