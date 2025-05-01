@@ -26,7 +26,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $user = validateLogin($pdo, $email, $password);
             if ($user) {
                 $_SESSION['user_email'] = $user['user_email'];
-                header("Location: ../view/userViews/userDash.php");
+                $_SESSION['user_id'] = $user['user_id'];
+                $_SESSION['user_nickname'] = $user['user_nickname'];
+                $_SESSION['user_type'] = $user['user_type'];
+                header("Location: ../view/index.php");
                 exit;
             } else {
                 $_SESSION['error'] = 'Email ou senha incorretos';
