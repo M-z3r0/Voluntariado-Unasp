@@ -13,7 +13,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $user_name = trim($_POST['user_name'] ?? '');
     $user_nickname = trim($_POST['user_nickname'] ?? '');
     $user_email = trim($_POST['user_email'] ?? '');
-    $user_password = $_POST['user_password'] ?? '';
+    $user_password = $_POST['user_reg_password'] ?? '';
     $confirm_password = $_POST['user_reg_confirmedpassword'] ?? '';
 
     if (empty($user_name) || empty($user_nickname) || empty($user_email) || empty($user_password)) {
