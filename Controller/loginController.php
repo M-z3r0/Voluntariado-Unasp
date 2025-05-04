@@ -1,7 +1,7 @@
 <?php
 session_start();
 require_once '../config/connection.php';
-require_once '../Model/userlogin.php';
+require_once '../model/userlogin.php';
 
 function redirectWithError($msg) {
     $_SESSION['error'] = $msg;

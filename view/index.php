@@ -15,10 +15,10 @@
                 <li><a href="">Resgatar</a></li>
                 <li><a href="">Sobre nós</a></li>
                 <li><a href="">FAQ</a></li>
-                <li><a href="">Doar</a></li>
+                <li><a href="userViews/donate.php">Doar</a></li>
                 <li><a href="">Missões</a></li>
                 <?php
-                    if(!empty(isset($_SESSION) and !empty($_SESSION['user_id']))){
+                    if((isset($_SESSION) and !empty($_SESSION['user_id']))){
                         if($_SESSION['user_type'] === 2) {
                             ?>
                                 <li><a href="admViews/admDash.php"><?php echo($_SESSION['user_nickname']);?></a></li>

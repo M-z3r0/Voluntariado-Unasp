@@ -18,7 +18,7 @@
     <section class="container" id="container">
         <div class="form-container sign-up">
          
-            <form action="../../Controller/singupController.php" method="POST">
+            <form action="../../controller/singupController.php" method="POST">
                 <h1>Criação de conta</h1>
                 <input type="text" name="user_name" id="user_reg_name" placeholder="Nome...">
                 <input type="text" name="user_nickname" id="user_reg_nickname" placeholder="Nome de usuário...">

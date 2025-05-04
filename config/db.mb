@@ -6,7 +6,7 @@ CREATE TABLE usuario(
     user_nickname VARCHAR(100) NOT NULL, 
     user_email VARCHAR(50) NOT NULL, 
     user_password VARCHAR(255) NOT NULL, 
-    user_typeof INT(1) NOT NULL DEFAULT 0, 
+    user_type INT(1) NOT NULL DEFAULT 0, 
     user_studentCod INT(4) NOT NULL DEFAULT 0, 
     user_cpf VARCHAR(14) NOT NULL DEFAULT '', 
     user_phone VARCHAR(14) NOT NULL DEFAULT 0 
