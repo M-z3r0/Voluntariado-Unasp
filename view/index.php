@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../public/styles/style.css">nk
+    <link rel="stylesheet" href="../public/styles/main.css">
     <title>Página inicial - Voluntariados</title>
 </head>
 <body>
@@ -15,7 +15,7 @@
                 <li><a href="">Resgatar</a></li>
                 <li><a href="">Sobre nós</a></li>
                 <li><a href="">FAQ</a></li>
-                <li><a href="userViews/donate.php">Doar</a></li>
+                <li><a href="userViews/donatePix.php">Doar</a></li>
                 <li><a href="">Missões</a></li>
                 <?php
                     if((isset($_SESSION) and !empty($_SESSION['user_id']))){
@@ -40,9 +40,10 @@
     <main>
         <section>
             <img src="" alt="Imagens fodas carossel explosão uaw">
+            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aliquam placeat eveniet aut impedit distinctio, illum sapiente quas ut asperiores odio, exercitationem corrupti error accusamus quasi consectetur neque explicabo quam deserunt. Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit illum fuga, dolor pariatur a ipsa doloremque, tempora quibusdam sint natus adipisci id cum vitae consectetur quis ipsam minima molestiae. Esse?</p>
         </section><!--Container - Contéudo 1-->
         <section>
-
+            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aliquam placeat eveniet aut impedit distinctio, illum sapiente quas ut asperiores odio, exercitationem corrupti error accusamus quasi consectetur neque explicabo quam deserunt. Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit illum fuga, dolor pariatur a ipsa doloremque, tempora quibusdam sint natus adipisci id cum vitae consectetur quis ipsam minima molestiae. Esse?</p>
             <!-- Botão de Doar -->
             <button id="openModalBtn">DOAR</button>
 
