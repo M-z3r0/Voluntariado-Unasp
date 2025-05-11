@@ -1,12 +1,18 @@
 <?php
+
+    function getDbConnection() {
     $host = 'localhost';
-    $dbname = 'bd_voluntariado';
-    $user = 'root';
-    $pass = '';
-    try {
-        $pdo = new PDO("mysql:host=$host;dbname=$dbname", $user, $pass);
-        $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    } catch (PDOException $e) {
-        die("Erro ao conectar-se ao servidor: " . $e->getMessage());
+    $usuario = 'root'; // ajuste conforme seu banco
+    $senha = '';
+    $banco = 'bd_voluntariado';
+
+    $conn = new mysqli($host, $usuario, $senha, $banco);
+    if ($conn->connect_error) {
+        die("Erro de conexão: " . $conn->connect_error);
     }
+
+    $conn->set_charset('utf8');
+    return $conn;
+}
+
 ?>

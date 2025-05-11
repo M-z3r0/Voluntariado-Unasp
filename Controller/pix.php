@@ -1,20 +1,6 @@
 <?php
 session_start();
 
-// verifica se foi pago mas pode não estar funcionando pois a sessão do webhook pode ser diferente, quando houver salvamento em banco de dados, isso será corrigido
-if (isset($_SESSION['pago']) && $_SESSION['pago'] === true) {
-    session_destroy();
-    header('Location: ../view/index.php');
-    exit;
-}
-
-// verifica se a sessão expirou
-if (isset($_SESSION['pix_expire']) && time() > $_SESSION['pix_expire']) {
-    session_destroy();
-    header('Location: ../view/index.php');
-    exit;
-}
-
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $nome = $_POST['user_name'] ?? '';
     $valor = floatval($_POST['don_value'] ?? 0);
@@ -22,13 +8,25 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if ($nome && $valor > 0) {
         require_once 'gerencianet_pix.php';
         $qrcode = gerarCobrancaPix($nome, $valor);
-        if (isset($qrcode['erro'])) {
-            $erro = $qrcode['erro'];
-            $qrcode = null;
-        } else {
-            echo "foi";
-        }
-
     }
 }
 ?>
+
+<h2>Escaneie o QR Code:</h2>
+<img src="<?= $qrcode['imagemQrcode'] ?>" alt="QR Code">
+<input type="text" value="<?= $qrcode['qrcode'] ?>" readonly style="width: 100%" onclick="this.select();">
+
+<script>
+    const verificarPagamento = () => {
+        fetch('verificar_pagamento.php')
+            .then(res => res.json())
+            .then(data => {
+                if (data.pago) {
+                    alert('Pagamento confirmado!');
+                    window.location.href = '../view/userViews/aa.php';
+                }
+            });
+    };
+
+    setInterval(verificarPagamento, 5000);
+</script>

@@ -50,7 +50,7 @@
             <form method="post" action="../../controller/pix.php">
 
                 <input type="text" name="user_name" placeholder="Seu nome" required>
-                <input type="number" name="don_value" step="0.50" placeholder="Valor da doação (R$)" required>
+                <input type="number" name="don_value" step="0.01" placeholder="Valor da doação (R$)" required>
                 <button type="submit">Gerar QR Code</button>
             </form>
         </section>
