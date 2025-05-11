@@ -1,21 +1,26 @@
 <?php
-session_start();
-header('Content-Type: application/json');
-require_once '../config/connection.php';
-$response = ['pago' => false];
+// verificar_pagamento.php
+require '../config/connection.php';
 
-if (isset($_SESSION['txid'])) {
-    $txid = $_SESSION['txid'];
+if (isset($_GET['txid'])) {
+    $txid = $_GET['txid'];
+
+    // Consulta no banco de dados para verificar o status do pagamento
     $pdo = getDbConnection();
     $stmt = $pdo->prepare("SELECT status FROM pagamentos_pix WHERE txid = ?");
     $stmt->bind_param("s", $txid);
     $stmt->execute();
     $result = $stmt->get_result();
-    $pagamento = $result->fetch_assoc();
 
-    if ($pagamento && $pagamento['status'] === 'confirmado') {
-        $response['pago'] = true;
+    if ($row = $result->fetch_assoc()) {
+        // Se o status do pagamento for 'CONCLUIDA', retorna um JSON com 'pago' como true
+        if ($row['status'] === 'CONCLUIDA') {
+            echo json_encode(['pago' => true]);
+        } else {
+            // Caso contrário, retorna como 'pendente'
+            echo json_encode(['pago' => false]);
+        }
+    } else {
+        echo json_encode(['pago' => false]);
     }
 }
-
-echo json_encode($response);
